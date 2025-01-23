@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-primary"  routerLink="/departments/add">Add</button>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(item of depts;track item.id){
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.address}}</td>
+            <!-- <td>
+    <button type="button" class="btn btn-primary"  routerLink="/departments/add">Add</button>
+
+            </td> -->
+            <td>
+    <button type="button" class="btn btn-warning" [routerLink]="['/departments/update',item.id]">Update</button>
+
+            </td>
+            <td>
+    <button type="button" class="btn btn-danger" (click)="deleto(item.id!)">Delete</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-info" [routerLink]="['/departments/details',item.id]">Detail</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<!-- <a routerLink="/departments/add">add</a> 
+<div class="btn-group" role="group" aria-label="Basic example">
+</div> -->
+<router-outlet></router-outlet>
